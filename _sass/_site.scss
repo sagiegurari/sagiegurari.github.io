@@ -78,6 +78,10 @@ a.nav-link {
     margin-top: 4px;
 }
 
+.content-container {
+    flex-grow: 1;
+}
+
 .sidenav-container {
     display: flex;
     flex-direction: column;
