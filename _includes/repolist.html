@@ -1,0 +1,21 @@
+<md-content class="repo-grid" ng-if="(state == '/') || (!state)">
+    <md-card class="repo-card" ng-repeat="repository in repositories" ng-if="(!repository.fork) && repository.language">
+        <md-subheader class="md-primary">
+            <span class="circle" ng-class="getLanguageColor(repository)"></span>
+            <a ng-href="[[repository.html_url]]" ng-bind="repository.name"></a>
+        </md-subheader>
+        <summary class="repo-info">
+            <p ng-bind="repository.description"></p>
+            <div class="row">
+                <div class="repo-counter-block">
+                    <span class="fa fa-star fa-fw repo-icon"></span>
+                    <span class="repo-counter" ng-bind="repository.stargazers_count"></span>
+                </div>
+                <div class="repo-counter-block">
+                    <span class="fa fa-code-fork fa-fw repo-icon"></span>
+                    <span class="repo-counter" ng-bind="repository.forks_count"></span>
+                </div>
+            </div>
+        </summary>
+    </md-card>
+</md-content>

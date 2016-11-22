@@ -1,0 +1,211 @@
+:root {
+    --main-bg-color: rgb(250, 250, 250);
+    --section-bg-color: rgb(250, 250, 250); //#F5F5F5;
+    --section-color: #5badf0; //rgba(0, 0, 0, 0.87);
+    --shadow-color: rgb(250, 250, 250); //rgba(100, 100, 100, 0.1);
+    --section-padding: 20px;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    background-color: var(--main-bg-color);
+}
+
+main {
+    flex-grow: 1;
+    justify-content: flex-start;
+}
+
+.link-icon,
+.toolbar-icon {
+    font-size: 22px;
+    margin-right: 12px;
+}
+
+a.nav-link {
+    color: black;
+    font-size: 16px;
+    font-weight: normal;
+    text-decoration: none;
+    padding-top: 2px;
+}
+
+.main-content {
+    md-toolbar.content-toolbar {
+        background-color: #409F62 !important;
+        height: 64px;
+    }
+}
+
+.site-footer,
+.site-header {
+    flex-grow: 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    padding: 10px;
+    color: var(--section-color);
+    background-color: var(--section-bg-color);
+    min-height: 48px;
+    justify-content: flex-end;
+    padding-right: var(--section-padding);
+}
+
+.site-header {
+    margin-bottom: 4px;
+
+    ul {
+        list-style-type: none;
+        margin: 0;
+
+        li {
+            display: inline-block;
+            margin-left: 5px;
+            padding-left: 7px;
+            border-left: 1px solid var(--section-color);
+
+            &:first-of-type {
+                border-left: none;
+            }
+        }
+    }
+}
+
+.site-footer {
+    margin-top: 4px;
+}
+
+.sidenav-container {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+
+    .app-nav {
+        background-color: #409F62;
+        background-image: repeating-linear-gradient(45deg, transparent, transparent 35px, rgba(255,255,255,.2) 35px, rgba(255,255,255,.2) 70px);
+        display: flex;
+        flex-direction: column;
+        flex-wrap: nowrap;
+        justify-content: flex-start;
+        flex-grow: 1;
+        transition: width 0.3s linear;
+        overflow-x: hidden;
+
+        .nav-link,
+        h3,
+        h4 {
+            white-space: nowrap;
+            overflow-x: hidden;
+        }
+
+        md-toolbar {
+            background: transparent;
+            padding-left: 10px;
+            padding-top: 10px;
+            flex-grow: 0;
+
+            .md-avatar {
+                flex: none;
+                width: 60px;
+                height: 60px;
+                border-radius: 50%;
+                margin-top: 8px;
+                margin-bottom: 8px;
+                margin-right: 16px;
+            }
+
+            .author {
+                font-size: 18px;
+                margin-bottom: 3px;
+            }
+
+            .mail {
+                font-size: 14px;
+                margin-top: 0;
+            }
+        }
+
+        md-content {
+            flex-grow: 1;
+        }
+
+        md-list-item {
+            line-height: 20px;
+        }
+    }
+
+    &.closed {
+        .app-nav {
+            width: 0;
+        }
+    }
+}
+
+.repo-grid {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    background-color: var(--main-bg-color);
+}
+
+.repo-card {
+    flex-grow: 0;
+    display: flex;
+    width: calc(100% * (1/5) - 10px - 1px);
+}
+@media (max-width: 1100px) {
+    .repo-card {
+        width: calc(100% * (1/3) - 10px - 1px);
+    }
+}
+@media (max-width: 650px) {
+    .repo-card {
+        width: calc(100% * (1/2) - 10px - 1px);
+    }
+}
+
+.template-container {
+    overflow-y: scroll;
+    height: calc(100% - 64px);
+}
+
+.repo-info {
+    padding: 16px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+}
+
+.repo-card {
+    .md-subheader {
+        background-color: #EDEDED;
+        box-shadow: 0 1px 0 0 rgba(0, 0, 0, 0.2), 0 1px 1px 0 rgba(0, 0, 0, 0.14), 0 2px 1px -1px rgba(0, 0, 0, 0.12);
+    }
+
+    .row {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        justify-content: space-between;
+    }
+}
+
+.circle {
+    display: inline-block;
+    margin-right: 10px;
+    border-radius: 50%;
+    width: 8px;
+    height: 8px;
+}
+
+.repo-icon:before {
+    height: 14px;
+    margin-right: 6px;
+}

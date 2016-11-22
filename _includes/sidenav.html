@@ -1,0 +1,32 @@
+<md-sidenav class="md-sidenav-left app-nav" md-component-id="sidenav" md-is-locked-open="ownerInfo" md-whiteframe="4">
+    <md-toolbar>
+        <img ng-src="[[ownerInfo.avatar_url]]" class="md-avatar" alt="[[ownerInfo.login]]" />
+        <h3 class="author">Sagie Gur-Ari</h3>
+        <h4 class="mail">sagiegurari@gmail.com</h4>
+    </md-toolbar>
+    <md-content layout-padding>
+        <md-list flex>
+            <md-list-item ng-click="openLink()" class="nav-link">
+                <i class="fa fa-code link-icon" aria-hidden="true"></i>
+                <a class="nav-link" ng-href="#/">Open Source Projects</a>
+            </md-list-item>
+            <md-list-item ng-click="openLink()" class="nav-link hidden">
+                <i class="fa fa-file-text-o link-icon" aria-hidden="true"></i>
+                <a class="nav-link" ng-href="#/cv">CV</a>
+            </md-list-item>
+            <md-divider></md-divider>
+            <md-list-item ng-click="openLink()" class="nav-link">
+                <i class="fa fa-github link-icon" aria-hidden="true"></i>
+                <a class="nav-link" target="_blank" href="[[ownerInfo.html_url]]">GitHub</a>
+            </md-list-item>
+            <md-list-item ng-click="openLink()" class="nav-link">
+                <i class="fa fa-stack-overflow link-icon" aria-hidden="true"></i>
+                <a class="nav-link" target="_blank" href="http://stackoverflow.com/users/2495789/sagie">StackOverflow</a>
+            </md-list-item>
+            <md-list-item ng-click="openLink()" class="nav-link">
+                <i class="fa fa-linkedin link-icon" aria-hidden="true"></i>
+                <a class="nav-link" target="_blank" href="https://www.linkedin.com/in/sagiegurari">Linkedin</a>
+            </md-list-item>
+        </md-list>
+    </md-content>
+</md-sidenav>
