@@ -207,3 +207,12 @@ a.nav-link {
     height: 14px;
     margin-right: 6px;
 }
+
+.job-description {
+    color: #777;
+
+    .job-summary {
+        padding: 0 10px;
+        border-left: 0.25em solid #ddd;
+    }
+}
