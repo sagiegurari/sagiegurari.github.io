@@ -4,7 +4,7 @@ angular.module('siteApp', ['ngMaterial', 'ngRoute'], function ($interpolateProvi
     $interpolateProvider.startSymbol('[[');
     $interpolateProvider.endSymbol(']]');
 }).config(['$routeProvider', function ($routeProvider) {
-    $routeProvider.when("/#/cv", {}).otherwise({});
+    $routeProvider.when("/#/resume", {}).otherwise({});
 }]).service('dataLoader', function () {
     var callback;
     var data = {
