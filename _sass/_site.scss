@@ -1,4 +1,3 @@
-
 //had to use sass variables instead of css variables due to lack of support by microsoft
 $main-bg-color: rgb(250, 250, 250);
 $section-bg-color: rgb(250, 250, 250);
@@ -7,9 +6,8 @@ $shadow-color: rgb(250, 250, 250);
 $section-padding: 20px;
 $pattern-color: #409F62;
 $toolbar-height: 64px;
-$text-color: #555;
+$text-color: #555; //too bad this is not supported by microsoft
 
-//too bad this is not supported by microsoft
 :root {
     --main-bg-color: $main-bg-color;
     --section-bg-color: $section-bg-color;
@@ -51,7 +49,7 @@ a.nav-link {
 
 .main-content {
     md-toolbar.content-toolbar {
-        background-color: $pattern-color) !important;
+        background-color: $pattern-color !important;
         height: $toolbar-height;
     }
 }
