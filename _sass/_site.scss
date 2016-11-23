@@ -172,12 +172,14 @@ a.nav-link {
 .template-container {
     overflow-y: scroll;
     height: calc(100% - var(--toolbar-height));
-    padding-top: 10px;
+    position: relative;
 }
 
 .page {
     opacity: 0;
     transition: opacity 0.3s linear;
+    position: absolute;
+    top: 10px;
 
     &.visible {
         opacity: 1;
