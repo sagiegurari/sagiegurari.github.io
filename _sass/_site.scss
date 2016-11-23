@@ -6,6 +6,7 @@
     --section-padding: 20px;
     --pattern-color: #409F62;
     --toolbar-height: 64px;
+    --text-color: #555;
 }
 
 body {
@@ -142,6 +143,7 @@ a.nav-link {
 
         md-list-item {
             line-height: 20px;
+            color: var(--text-color);
         }
     }
 
@@ -179,6 +181,7 @@ a.nav-link {
     flex-direction: column;
     flex-wrap: nowrap;
     justify-content: space-between;
+    color: var(--text-color);
 }
 
 .repo-card {
