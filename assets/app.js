@@ -5,26 +5,57 @@ angular.module('siteApp', ['ngMaterial', 'ngRoute'], function ($interpolateProvi
     $interpolateProvider.endSymbol(']]');
 }).config(['$routeProvider', function ($routeProvider) {
     $routeProvider.when("/#/cv", {}).otherwise({});
-}]).controller('siteController', ['$scope', '$location', function ($scope, $location) {
-    'use strict';
+}]).service('dataLoader', function () {
+    var callback;
+    var data = {
+        githubInfo: (window.githubInfo || window.testInfo || [])
+    };
 
-    $scope.repositories = (window.githubInfo || window.testInfo || []).sort(function (repo1, repo2) {
-        var output = repo2.stargazers_count - repo1.stargazers_count;
-
-        if (!output) {
-            output = repo2.forks_count - repo1.forks_count;
+    $.getJSON('https://api.github.com/users/sagiegurari/repos', function (apiData) {
+        if (apiData && Array.isArray(apiData) && apiData.length) {
+            data.githubInfo = apiData;
+            callback(data);
         }
-
-        return output;
     });
 
-    var index;
-    for (index = 0; index < $scope.repositories.length; index++) {
-        if (!$scope.repositories[index].fork) {
-            $scope.ownerInfo = $scope.repositories[index].owner;
-            break;
+    return {
+        get: function (listener) {
+            callback = listener;
+
+            callback(data);
         }
-    }
+    };
+}).controller('siteController', ['$scope', '$location', 'dataLoader', function ($scope, $location, dataLoader) {
+    'use strict';
+
+    dataLoader.get(function (data) {
+        setTimeout(function () {
+            $scope.appData = data;
+            $scope.$digest();
+        }, 0);
+    });
+
+    $scope.$watch('appData.githubInfo', function (value) {
+        if (value && Array.isArray(value) && value.length) {
+            $scope.repositories = value.sort(function (repo1, repo2) {
+                var output = repo2.stargazers_count - repo1.stargazers_count;
+
+                if (!output) {
+                    output = repo2.forks_count - repo1.forks_count;
+                }
+
+                return output;
+            });
+
+            var index;
+            for (index = 0; index < $scope.repositories.length; index++) {
+                if (!$scope.repositories[index].fork) {
+                    $scope.ownerInfo = $scope.repositories[index].owner;
+                    break;
+                }
+            }
+        }
+    }, true);
 
     $scope.getLanguageColor = function (repository) {
         if (repository && repository.language) {
@@ -45,7 +76,6 @@ angular.module('siteApp', ['ngMaterial', 'ngRoute'], function ($interpolateProvi
         link: function (scope, element) {
             scope.toggleSideNav = function () {
                 var $nav = element.find('.sidenav-container');
-                console.debug($nav.length )//TODO RMOVE
 
                 if ($nav.hasClass('closed')) {
                     $nav.removeClass('closed');
