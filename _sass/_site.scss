@@ -26,6 +26,7 @@ main {
 .toolbar-icon {
     font-size: 22px;
     margin-right: 12px;
+    width: 22px;
 }
 
 a.nav-link {
@@ -172,6 +173,15 @@ a.nav-link {
     overflow-y: scroll;
     height: calc(100% - var(--toolbar-height));
     padding-top: 10px;
+}
+
+.page {
+    opacity: 0;
+    transition: opacity 0.3s linear;
+
+    &.visible {
+        opacity: 1;
+    }
 }
 
 .repo-info {

@@ -1,4 +1,4 @@
-<md-content class="repo-grid" ng-if="(state == '/') || (!state)">
+<md-content class="page repo-grid" ng-class="{'visible': (state == '/') || (!state)}">
     <md-card class="repo-card" ng-repeat="repository in repositories" ng-if="(!repository.fork) && repository.language">
         <md-subheader class="md-primary">
             <span class="circle" ng-class="getLanguageColor(repository)"></span>
