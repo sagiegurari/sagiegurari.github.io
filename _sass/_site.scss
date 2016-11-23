@@ -5,6 +5,7 @@
     --shadow-color: rgb(250, 250, 250); //rgba(100, 100, 100, 0.1);
     --section-padding: 20px;
     --pattern-color: #409F62;
+    --toolbar-height: 64px;
 }
 
 body {
@@ -37,7 +38,7 @@ a.nav-link {
 .main-content {
     md-toolbar.content-toolbar {
         background-color: var(--pattern-color) !important;
-        height: 64px;
+        height: var(--toolbar-height);
     }
 }
 
@@ -162,12 +163,13 @@ a.nav-link {
 .repo-card {
     flex-grow: 0;
     display: flex;
-    width: 200px;
+    width: 250px;
 }
 
 .template-container {
     overflow-y: scroll;
-    height: calc(100% - 64px);
+    height: calc(100% - var(--toolbar-height));
+    padding-top: 10px;
 }
 
 .repo-info {
