@@ -1,12 +1,24 @@
+
+//had to use sass variables instead of css variables due to lack of support by microsoft
+$main-bg-color: rgb(250, 250, 250);
+$section-bg-color: rgb(250, 250, 250);
+$section-color: #5badf0;
+$shadow-color: rgb(250, 250, 250);
+$section-padding: 20px;
+$pattern-color: #409F62;
+$toolbar-height: 64px;
+$text-color: #555;
+
+//too bad this is not supported by microsoft
 :root {
-    --main-bg-color: rgb(250, 250, 250);
-    --section-bg-color: rgb(250, 250, 250); //#F5F5F5;
-    --section-color: #5badf0; //rgba(0, 0, 0, 0.87);
-    --shadow-color: rgb(250, 250, 250); //rgba(100, 100, 100, 0.1);
-    --section-padding: 20px;
-    --pattern-color: #409F62;
-    --toolbar-height: 64px;
-    --text-color: #555;
+    --main-bg-color: $main-bg-color;
+    --section-bg-color: $section-bg-color;
+    --section-color: $section-color;
+    --shadow-color: $shadow-color;
+    --section-padding: $section-padding;
+    --pattern-color: $pattern-color;
+    --toolbar-height: $toolbar-height;
+    --text-color: $text-color;
 }
 
 body {
@@ -14,7 +26,7 @@ body {
     flex-direction: column;
     flex-wrap: nowrap;
     justify-content: flex-start;
-    background-color: var(--main-bg-color);
+    background-color: $main-bg-color;
 }
 
 main {
@@ -39,8 +51,8 @@ a.nav-link {
 
 .main-content {
     md-toolbar.content-toolbar {
-        background-color: var(--pattern-color) !important;
-        height: var(--toolbar-height);
+        background-color: $pattern-color) !important;
+        height: $toolbar-height;
     }
 }
 
@@ -51,11 +63,11 @@ a.nav-link {
     flex-direction: row;
     justify-content: center;
     padding: 10px;
-    color: var(--section-color);
-    background-color: var(--section-bg-color);
+    color: $section-color;
+    background-color: $section-bg-color;
     min-height: 48px;
     justify-content: flex-end;
-    padding-right: var(--section-padding);
+    padding-right: $section-padding;
 }
 
 .site-header {
@@ -69,7 +81,7 @@ a.nav-link {
             display: inline-block;
             margin-left: 5px;
             padding-left: 7px;
-            border-left: 1px solid var(--section-color);
+            border-left: 1px solid $section-color;
 
             &:first-of-type {
                 border-left: none;
@@ -93,7 +105,7 @@ a.nav-link {
     justify-content: flex-start;
 
     .app-nav {
-        background-color: var(--pattern-color);
+        background-color: $pattern-color;
         background-image: repeating-linear-gradient(45deg, transparent, transparent 35px, rgba(255,255,255,.2) 35px, rgba(255,255,255,.2) 70px);
         display: flex;
         flex-direction: column;
@@ -145,7 +157,7 @@ a.nav-link {
 
         md-list-item {
             line-height: 20px;
-            color: var(--text-color);
+            color: $text-color;
         }
     }
 
@@ -161,7 +173,7 @@ a.nav-link {
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
-    background-color: var(--main-bg-color);
+    background-color: $main-bg-color;
 }
 
 .repo-card {
@@ -172,7 +184,7 @@ a.nav-link {
 
 .template-container {
     overflow-y: scroll;
-    height: calc(100% - var(--toolbar-height));
+    height: calc(100% - $toolbar-height);
     position: relative;
 }
 
@@ -194,7 +206,7 @@ a.nav-link {
     flex-direction: column;
     flex-wrap: nowrap;
     justify-content: space-between;
-    color: var(--text-color);
+    color: $text-color;
 }
 
 .repo-card {
@@ -225,7 +237,7 @@ a.nav-link {
 }
 
 .job-description {
-    color: var(--text-color);
+    color: $text-color;
 
     .job-title {
         color: #444;
