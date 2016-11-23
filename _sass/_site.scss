@@ -211,6 +211,10 @@ a.nav-link {
 .job-description {
     color: #777;
 
+    .job-title {
+        color: #444;
+    }
+
     .job-summary {
         padding: 0 10px;
         border-left: 0.25em solid #ddd;
