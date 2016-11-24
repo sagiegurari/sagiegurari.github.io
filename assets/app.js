@@ -84,8 +84,7 @@ angular.module('siteApp', ['ngMaterial', 'ngRoute'], function ($interpolateProvi
                 }
             };
 
-            var portraitMQL = window.matchMedia("(orientation: portrait)");
-            portraitMQL.addListener(function (event) {
+            var onOrientationChange = function (event) {
                 var $nav = element.find('.sidenav-container');
 
                 if (event.matches) {
@@ -93,7 +92,11 @@ angular.module('siteApp', ['ngMaterial', 'ngRoute'], function ($interpolateProvi
                 } else {
                     $nav.removeClass('closed');
                 }
-            });
+            };
+
+            var portraitMQL = window.matchMedia("(orientation: portrait)");
+            portraitMQL.addListener(onOrientationChange);
+            onOrientationChange(portraitMQL);
         }
     };
 }).directive('navLink', function () {
