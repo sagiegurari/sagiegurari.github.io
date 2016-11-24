@@ -94,6 +94,12 @@ a.nav-link {
     flex-grow: 1;
 }
 
+.md-toolbar-tools {
+    .md-icon-button {
+        background-color: transparent !important;
+    }
+}
+
 .sidenav-container {
     display: flex;
     flex-direction: column;
@@ -245,6 +251,28 @@ a.nav-link {
     }
 }
 @media all and (orientation: portrait) {
+    .main-content {
+        .md-toolbar-tools,
+        md-toolbar.content-toolbar {
+            height: 125px;
+            max-height: 125px;
+
+            .md-icon-button {
+                width: 65px;
+                padding: 0;
+            }
+        }
+    }
+
+    .template-container {
+        height: calc(100% - 125px);
+    }
+
+    .toolbar-icon {
+        font-size: 35px;
+        width: 35px;
+    }
+
     .sidenav-container {
         .app-nav {
             width: 600px;
@@ -267,6 +295,11 @@ a.nav-link {
 
             md-list-item {
                 line-height: 35px;
+            }
+
+            md-divider,
+            md-list-item {
+                margin-bottom: 30px;
             }
         }
     }
