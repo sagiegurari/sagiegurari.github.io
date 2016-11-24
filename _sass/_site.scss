@@ -299,7 +299,9 @@ a.nav-link {
 
             md-divider,
             md-list-item {
-                margin-bottom: 30px;
+                .md-button {
+                    height: 85px;
+                }
             }
         }
     }
