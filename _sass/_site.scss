@@ -244,3 +244,30 @@ a.nav-link {
         border-left: 0.25em solid #ddd;
     }
 }
+@media all and (orientation: portrait) {
+    .sidenav-container {
+        .app-nav {
+            width: 600px;
+            max-width: 600px;
+
+            md-toolbar {
+                .md-avatar {
+                    width: 140px;
+                    height: 140px;
+                }
+
+                .author {
+                    font-size: 24px;
+                }
+
+                .mail {
+                    font-size: 20px;
+                }
+            }
+        }
+    }
+
+    a.nav-link {
+        font-size: 24px;
+    }
+}

@@ -83,6 +83,17 @@ angular.module('siteApp', ['ngMaterial', 'ngRoute'], function ($interpolateProvi
                     $nav.addClass('closed');
                 }
             };
+
+            var portraitMQL = window.matchMedia("(orientation: portrait)");
+            portraitMQL.addListener(function (event) {
+                var $nav = element.find('.sidenav-container');
+
+                if (event.matches) {
+                    $nav.addClass('closed');
+                } else {
+                    $nav.removeClass('closed');
+                }
+            });
         }
     };
 }).directive('navLink', function () {
