@@ -70,6 +70,22 @@ angular.module('siteApp', ['ngMaterial', 'ngRoute'], function ($interpolateProvi
     }, function (state) {
         $scope.state = state;
     });
+
+    $scope.isInState = function (name) {
+        var inState = false;
+
+        if (name && $scope.state) {
+            inState = $scope.state.toLowerCase().indexOf(name.toLowerCase()) !== -1;
+        } else if (!name) {
+            inState = true;
+
+            if ($scope.state) {
+                inState = ($scope.state === '/');
+            }
+        }
+
+        return inState;
+    }
 }]).directive('mainContent', function () {
     return {
         restrict: 'C',
@@ -107,8 +123,27 @@ angular.module('siteApp', ['ngMaterial', 'ngRoute'], function ($interpolateProvi
             scope.openLink = function () {
                 setTimeout(function () {
                     element.find('.nav-link')[0].click();
-                });
+                }, 0);
             }
+        }
+    };
+}).directive('page', function () {
+    return {
+        restrict: 'C',
+        link: function (scope, element) {
+            scope.$watch(function () {
+                var stateName = element.attr('state-name');
+
+                return scope.isInState(stateName);
+            }, function (show) {
+                if (show) {
+                    element.removeClass('hide-page');
+                    element.addClass('show-page');
+                } else {
+                    element.removeClass('show-page');
+                    element.addClass('hide-page');
+                }
+            });
         }
     };
 });

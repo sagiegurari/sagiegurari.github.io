@@ -176,6 +176,7 @@ a.nav-link {
     flex-wrap: wrap;
     justify-content: center;
     background-color: $mainBgColor;
+    margin-top: 20px;
 }
 
 .repo-card {
@@ -185,19 +186,25 @@ a.nav-link {
 }
 
 .template-container {
-    overflow-y: scroll;
+    overflow-y: auto;
     height: calc(100% - 64px);
     position: relative;
 }
 
 .page {
     opacity: 0;
-    transition: opacity 0.5s linear;
+    display: none;
     position: absolute;
     top: 10px;
 
-    &.visible {
+    &.show-page {
         opacity: 1;
+        display: flex;
+        @include vendor-animation(fadeIn, 0.5s, linear);
+    }
+
+    &.hide-page {
+        @include vendor-animation(fadeOut, 0.5s, linear);
     }
 }
 
