@@ -131,17 +131,27 @@ angular.module('siteApp', ['ngMaterial', 'ngRoute'], function ($interpolateProvi
     return {
         restrict: 'C',
         link: function (scope, element) {
+            var timeoutID;
+
             scope.$watch(function () {
                 var stateName = element.attr('state-name');
 
                 return scope.isInState(stateName);
             }, function (show) {
+                clearTimeout(timeoutID);
+                timeoutID = null;
+                element.removeClass('hidden');
+
                 if (show) {
                     element.removeClass('hide-page');
                     element.addClass('show-page');
                 } else {
                     element.removeClass('show-page');
                     element.addClass('hide-page');
+
+                    timeoutID = setTimeout(function () {
+                        element.addClass('hidden');
+                    }, 500);
                 }
             });
         }
