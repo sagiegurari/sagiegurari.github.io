@@ -140,9 +140,10 @@ angular.module('siteApp', ['ngMaterial', 'ngRoute'], function ($interpolateProvi
             }, function (show) {
                 clearTimeout(timeoutID);
                 timeoutID = null;
-                element.removeClass('hidden');
 
                 if (show) {
+                    element.removeClass('hidden');
+
                     element.removeClass('hide-page');
                     element.addClass('show-page');
                 } else {
