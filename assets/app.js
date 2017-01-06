@@ -115,6 +115,8 @@ angular.module('siteApp', ['ngMaterial', 'ngRoute'], function ($interpolateProvi
 
                     if (width) {
                         $page.css('width', width + 'px');
+
+                        timeoutID = setTimeout(cleanup, 310);
                     }
                 } else {
                     $page = null;
