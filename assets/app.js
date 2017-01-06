@@ -128,7 +128,7 @@ angular.module('siteApp', ['ngMaterial', 'ngRoute'], function ($interpolateProvi
 
             var collapse = function ($nav) {
                 setupForAnimation();
-                $nav.removeClass('closed');
+                $nav.addClass('closed');
             };
 
             scope.toggleSideNav = function () {
