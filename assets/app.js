@@ -90,13 +90,54 @@ angular.module('siteApp', ['ngMaterial', 'ngRoute'], function ($interpolateProvi
     return {
         restrict: 'C',
         link: function (scope, element) {
+            var timeoutID;
+            var $page;
+
+            var cleanup = function () {
+                if (timeoutID) {
+                    clearTimeout(timeoutID);
+                    timeoutID = null;
+                }
+
+                if ($page) {
+                    $page.css('width', '');
+                    $page = null;
+                }
+            };
+
+            var setupForAnimation = function () {
+                cleanup();
+
+                $page = element.find('.page.persist-width:not(.hidden)');
+                if ($page.length) {
+                    $page = $page.first();
+                    var width = $page.width();
+
+                    if (width) {
+                        $page.css('width', width + 'px');
+                    }
+                } else {
+                    $page = null;
+                }
+            };
+
+            var expand = function ($nav) {
+                setupForAnimation();
+                $nav.removeClass('closed');
+            };
+
+            var collapse = function ($nav) {
+                setupForAnimation();
+                $nav.removeClass('closed');
+            };
+
             scope.toggleSideNav = function () {
                 var $nav = element.find('.sidenav-container');
 
                 if ($nav.hasClass('closed')) {
-                    $nav.removeClass('closed');
+                    expand($nav);
                 } else {
-                    $nav.addClass('closed');
+                    collapse($nav);
                 }
             };
 
@@ -104,9 +145,9 @@ angular.module('siteApp', ['ngMaterial', 'ngRoute'], function ($interpolateProvi
                 var $nav = element.find('.sidenav-container');
 
                 if (event.matches) {
-                    $nav.addClass('closed');
+                    collapse($nav);
                 } else {
-                    $nav.removeClass('closed');
+                    expand($nav);
                 }
             };
 
