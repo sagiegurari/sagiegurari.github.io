@@ -37,6 +37,9 @@ angular.module('siteApp', ['ngMaterial', 'ngRoute'], function ($interpolateProvi
 
     $scope.$watch('appData.githubInfo', function (value) {
         if (value && Array.isArray(value) && value.length) {
+            //clone data
+            value = JSON.parse(JSON.stringify(value));
+            
             $scope.repositories = value.sort(function (repo1, repo2) {
                 var output = repo2.stargazers_count - repo1.stargazers_count;
 
