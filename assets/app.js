@@ -89,7 +89,17 @@ angular.module('siteApp', ['ngMaterial', 'ngRoute'], function ($interpolateProvi
 
         return inState;
     }
-}]).directive('mainContent', function () {
+}]).directive('site', function () {
+    return {
+        restrict: 'C',
+        link: function (scope, element) {
+            setTimeout(function () {
+                element.removeClass('hidden');
+            }, 1500);
+        },
+        controller: 'siteController' 
+    };
+}).directive('mainContent', function () {
     return {
         restrict: 'C',
         link: function (scope, element) {
