@@ -217,6 +217,10 @@ a.nav-link {
     color: $textColor;
 }
 
+.repo-link {
+    text-transform: lowercase;
+}
+
 .repo-card {
     .md-subheader {
         background-color: #EDEDED;
