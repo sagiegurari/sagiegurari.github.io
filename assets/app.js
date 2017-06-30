@@ -89,7 +89,27 @@ angular.module('siteApp', ['ngMaterial', 'ngRoute'], function ($interpolateProvi
 
         return inState;
     }
-}]).directive('site', function () {
+}]).filter('languageTitle', function () {
+    var aliases = {
+        javascript: 'js'
+    };
+    
+    return function (repository) {
+        var output = '';
+        
+        if (repository && repository.language) {
+            output = repository.language.toLowerCase();
+            
+            if (aliases[output]) {
+                output = aliases[output];
+            }
+            
+            output = ['(', output, ')'].join('');
+        }
+
+        return output;
+    }
+}).directive('site', function () {
     return {
         restrict: 'C',
         link: function (scope, element) {

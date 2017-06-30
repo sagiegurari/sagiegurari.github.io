@@ -3,6 +3,7 @@
         <md-subheader class="md-primary">
             <span class="circle" ng-class="getLanguageColor(repository)"></span>
             <a class="repo-link" ng-href="[[repository.html_url]]" ng-bind="repository.name"></a>
+            <span class="repo-lang" ng-bind="repository | languageTitle"></span>
         </md-subheader>
         <summary class="repo-info">
             <p ng-bind="repository.description"></p>
