@@ -2,7 +2,7 @@
     <md-card class="repo-card" ng-repeat="repository in repositories" ng-if="(!repository.fork) && repository.language">
         <md-subheader class="md-primary">
             <span class="circle" ng-class="getLanguageColor(repository)"></span>
-            <a class="repo-link" ng-href="[[repository.html_url]]">{{repository.name}} ({{repository.language}})</a>
+            <a class="repo-link" ng-href="[[repository.html_url]]" ng-bind="repository.name"></a>
         </md-subheader>
         <summary class="repo-info">
             <p ng-bind="repository.description"></p>
