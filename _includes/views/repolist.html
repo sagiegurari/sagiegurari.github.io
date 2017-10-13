@@ -1,5 +1,5 @@
 <md-content class="page hidden repo-grid persist-width">
-    <md-card class="repo-card" ng-repeat="repository in repositories" ng-if="(!repository.fork) && repository.language">
+    <md-card class="repo-card" ng-repeat="repository in repositories" ng-if="(!repository.fork) && (repository.name.toLowerCase().indexOf('test') === -1)">
         <md-subheader class="md-primary">
             <span class="circle" ng-class="getLanguageColor(repository)"></span>
             <a class="repo-link" ng-href="[[repository.html_url]]" ng-bind="repository.name"></a>
