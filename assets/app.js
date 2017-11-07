@@ -11,7 +11,7 @@ angular.module('siteApp', ['ngMaterial', 'ngRoute'], function ($interpolateProvi
         githubInfo: (window.githubInfo || window.testInfo || [])
     };
 
-    $.getJSON('https://api.github.com/users/sagiegurari/repos', function (apiData) {
+    $.getJSON('https://api.github.com/users/sagiegurari/repos?type=owner&per_page=100', function (apiData) {
         if (apiData && Array.isArray(apiData) && apiData.length) {
             data.githubInfo = apiData;
             callback(data);
