@@ -36,6 +36,18 @@ module.exports = function(grunt) {
                 }
             }
         },
+        concat: {
+            options: {
+                sourceMap: true
+            },
+            js: {
+                src: [
+                    'lib/*.js',
+                    '!lib/service-worker.js'
+                ],
+                dest: 'tmp/lib/app.js'
+            }
+        },
         babel: {
             options: {
                 sourceMap: true,
@@ -44,11 +56,21 @@ module.exports = function(grunt) {
             },
             dist: {
                 files: {
-                    'dist/lib/app.js': [
-                        'lib/*.js',
-                        '!lib/service-worker.js'
-                    ],
+                    'dist/lib/app.js': 'tmp/lib/app.js',
                     'dist/lib/service-worker.js': 'lib/service-worker.js'
+                }
+            }
+        },
+        watch: {
+            dist: {
+                files: [
+                    'index.html',
+                    'styles/**',
+                    'lib/**'
+                ],
+                tasks: ['build'],
+                options: {
+                    spawn: false,
                 }
             }
         }
@@ -58,6 +80,7 @@ module.exports = function(grunt) {
         'clean:dist',
         'cssmin:dist',
         'htmlmin:dist',
+        'concat:js',
         'babel:dist'
     ]);
 };

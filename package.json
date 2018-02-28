@@ -16,7 +16,8 @@
   "scripts": {
     "install-server": "yarn global add static-server",
     "start": "static-server -p 8080 ./dist",
-    "build": "grunt build"
+    "build": "grunt build",
+    "watch": "grunt watch:dist"
   },
   "dependencies": {
     "normalize.css": "^8.0.0"
@@ -27,8 +28,10 @@
     "grunt": "^1.0.2",
     "grunt-babel": "^7.0.0",
     "grunt-contrib-clean": "^1.1.0",
+    "grunt-contrib-concat": "^1.0.1",
     "grunt-contrib-cssmin": "^2.2.1",
     "grunt-contrib-htmlmin": "^2.4.0",
+    "grunt-contrib-watch": "^1.0.0",
     "grunt-eslint": "^20.1.0",
     "jit-grunt": "^0.10.0",
     "time-grunt": "^1.4.0"
