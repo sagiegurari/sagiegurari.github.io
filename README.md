@@ -1,3 +1,3 @@
 # sagiegurari.github.io
 
-[My github pages](https://sagiegurari.github.io/)
+[My Github Pages](https://sagiegurari.github.io/)

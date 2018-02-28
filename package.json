@@ -1,0 +1,36 @@
+{
+  "name": "sagiegurari.github.io",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Personal website: https://sagiegurari.github.io",
+  "author": {
+    "name": "Sagie Gur-Ari",
+    "email": "sagiegurari@gmail.com"
+  },
+  "license": "MIT",
+  "homepage": "http://github.com/sagiegurari/sagiegurari.github.io",
+  "repository": {
+    "type": "git",
+    "url": "http://github.com/sagiegurari/sagiegurari.github.io.git"
+  },
+  "scripts": {
+    "install-server": "yarn global add static-server",
+    "start": "static-server -p 8080 ./dist",
+    "build": "grunt build"
+  },
+  "dependencies": {
+    "normalize.css": "^8.0.0"
+  },
+  "devDependencies": {
+    "babel-core": "^6.26.0",
+    "babel-preset-env": "^1.6.1",
+    "grunt": "^1.0.2",
+    "grunt-babel": "^7.0.0",
+    "grunt-contrib-clean": "^1.1.0",
+    "grunt-contrib-cssmin": "^2.2.1",
+    "grunt-contrib-htmlmin": "^2.4.0",
+    "grunt-eslint": "^20.1.0",
+    "jit-grunt": "^0.10.0",
+    "time-grunt": "^1.4.0"
+  }
+}
