@@ -11,7 +11,10 @@ module.exports = function (grunt) {
             },
             dot: 'true',
             dist: {
-                src: ['dist/**']
+                src: [
+                    'dist/**',
+                    'tmp/**'
+                ]
             }
         },
         jsonlint: {
@@ -61,7 +64,7 @@ module.exports = function (grunt) {
             options: {},
             dist: {
                 files: {
-                    'dist/styles/styles.css': [
+                    'tmp/styles/styles.css': [
                         'node_modules/normalize.css/normalize.css',
                         'styles/*.css'
                     ]
@@ -79,6 +82,19 @@ module.exports = function (grunt) {
                 }
             }
         },
+        copy: {
+            dist: {
+                files: [
+                    {
+                        expand: true,
+                        cwd: 'node_modules/materialize-css/dist/',
+                        src: ['fonts/**'],
+                        dest: 'dist/',
+                        filter: 'isFile'
+                    }
+                ]
+            },
+        },
         concat: {
             options: {
                 sourceMap: true
@@ -89,7 +105,22 @@ module.exports = function (grunt) {
                     '!lib/service-worker.js'
                 ],
                 dest: 'tmp/lib/app.js'
-            }
+            },
+            css: {
+                src: [
+                    'tmp/styles/styles.css',
+                    'node_modules/materialize-css/dist/css/materialize.min.css'
+                ],
+                dest: 'dist/styles/styles.css'
+            },
+            dist: {
+                src: [
+                    'node_modules/jquery/dist/jquery.min.js',
+                    'tmp/lib/app-min.js',
+                    'node_modules/materialize-css/dist/js/materialize.min.js'
+                ],
+                dest: 'dist/lib/app.js'
+            },
         },
         babel: {
             options: {
@@ -99,7 +130,7 @@ module.exports = function (grunt) {
             },
             dist: {
                 files: {
-                    'dist/lib/app.js': 'tmp/lib/app.js',
+                    'tmp/lib/app-min.js': 'tmp/lib/app.js',
                     'dist/lib/service-worker.js': 'lib/service-worker.js'
                 }
             }
@@ -126,8 +157,11 @@ module.exports = function (grunt) {
         'eslint:full',
         'stylelint:full',
         'cssmin:dist',
+        'concat:css',
         'htmlmin:dist',
         'concat:js',
-        'babel:dist'
+        'babel:dist',
+        'concat:dist',
+        'copy:dist'
     ]);
 };

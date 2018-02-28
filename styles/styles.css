@@ -4,3 +4,49 @@ body {
   flex-wrap: nowrap;
   justify-content: flex-start;
 }
+
+.button-collapse {
+  display: block !important;
+  font-size: 22px;
+}
+
+.top-nav {
+  background-color: #409f62 !important;
+}
+
+.side-banner {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  background-color: #409f62;
+  background-image: repeating-linear-gradient(45deg, transparent, transparent 35px, rgba(255, 255, 255, 0.2) 35px, rgba(255, 255, 255, 0.2) 70px);
+  padding: 12px;
+}
+
+.avatar {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  margin-top: 8px;
+  margin-bottom: 8px;
+  margin-right: 16px;
+}
+
+.author {
+  font-size: 16px;
+  line-height: 18px;
+  margin-top: 20px;
+  margin-bottom: 3px;
+  color: white;
+}
+
+.mail {
+  font-size: 14px;
+  line-height: 18px;
+  margin-top: 0;
+  color: rgb(220, 220, 220);
+}
+
+.menu-icon {
+  font-weight: 100 !important;
+}
