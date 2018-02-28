@@ -15,7 +15,7 @@
   },
   "scripts": {
     "install-server": "yarn global add static-server",
-    "start": "static-server -p 8080 ./dist",
+    "start": "static-server -p 8090 ./dist",
     "build": "grunt build",
     "watch": "grunt watch:dist"
   },
@@ -33,7 +33,11 @@
     "grunt-contrib-htmlmin": "^2.4.0",
     "grunt-contrib-watch": "^1.0.0",
     "grunt-eslint": "^20.1.0",
+    "grunt-jsbeautifier": "^0.2.13",
+    "grunt-stylelint": "^0.9.0",
     "jit-grunt": "^0.10.0",
+    "stylelint": "^9.1.1",
+    "stylelint-config-standard": "^18.1.0",
     "time-grunt": "^1.4.0"
   }
 }

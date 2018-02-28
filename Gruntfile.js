@@ -1,6 +1,6 @@
 'use strict';
 
-module.exports = function(grunt) {
+module.exports = function (grunt) {
     require('time-grunt')(grunt);
     require('jit-grunt')(grunt);
 
@@ -12,6 +12,49 @@ module.exports = function(grunt) {
             dot: 'true',
             dist: {
                 src: ['dist/**']
+            }
+        },
+        jsonlint: {
+            format: {
+                src: [
+                    '*.json',
+                    '.*.json'
+                ],
+                options: {
+                    format: true,
+                    indent: 2
+                }
+            }
+        },
+        jsbeautifier: {
+            full: {
+                options: {
+                    config: '.jsbeautifyrc'
+                },
+                src: [
+                    'index.html',
+                    '*.js',
+                    'lib/**/*',
+                    'styles/**/*'
+                ]
+            }
+        },
+        eslint: {
+            full: {
+                options: {
+                    configFile: '.eslintrc.json'
+                },
+                src: ['lib/**/*.js']
+            }
+        },
+        stylelint: {
+            full: {
+                options: {
+                    configFile: 'stylelint.config.js',
+                    formatter: 'string',
+                    allowEmptyInput: true
+                },
+                src: ['styles/*.css']
             }
         },
         cssmin: {
@@ -78,6 +121,10 @@ module.exports = function(grunt) {
 
     grunt.registerTask('build', 'Run the full build flow.', [
         'clean:dist',
+        'jsbeautifier:full',
+        'jsonlint:format',
+        'eslint:full',
+        'stylelint:full',
         'cssmin:dist',
         'htmlmin:dist',
         'concat:js',
