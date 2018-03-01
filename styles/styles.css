@@ -130,3 +130,36 @@ summary {
   float: none;
   line-height: 18px;
 }
+
+.repo-grid {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.repo-card {
+  flex-grow: 0;
+  display: flex;
+  width: 265px;
+  font-size: 14px;
+}
+
+.repo-card-content {
+  width: 100%;
+}
+
+.repo-card .repo-header {
+  background-color: #ededed;
+  box-shadow: 0 1px 0 0 rgba(0, 0, 0, 0.2), 0 1px 1px 0 rgba(0, 0, 0, 0.14), 0 2px 1px -1px rgba(0, 0, 0, 0.12);
+  padding: 10px;
+}
+
+.circle {
+  display: inline-block;
+  margin-right: 10px;
+  border-radius: 50%;
+  width: 8px;
+  height: 8px;
+}
