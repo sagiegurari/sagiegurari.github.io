@@ -10,6 +10,10 @@ body {
   max-height: 100%;
 }
 
+.hidden {
+  display: none;
+}
+
 .button-collapse {
   display: block !important;
   font-size: 22px;
@@ -67,9 +71,16 @@ body {
   font-weight: 100 !important;
 }
 
+.main {
+  overflow: hidden;
+}
+
 div.content {
   position: relative;
   display: flex;
+  overflow-y: auto;
+  height: 100%;
+  width: 100%;
 }
 
 .page {
@@ -80,7 +91,7 @@ div.content {
   top: 0;
   left: 0;
   opacity: 0;
-  transition: opacity 1s ease-in-out;
+  transition: opacity 0.5s ease-in-out;
 }
 
 .page ul {
@@ -92,6 +103,7 @@ ul.browser-default {
 }
 
 .page.show {
+  display: block;
   opacity: 1;
 }
 
