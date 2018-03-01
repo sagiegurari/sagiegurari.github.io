@@ -15,7 +15,8 @@
   },
   "scripts": {
     "install-server": "yarn global add static-server",
-    "start": "static-server -p 8090 ./dist",
+    "startLocal": "static-server -p 8090",
+    "startRemote": "static-server -p $PORT",
     "build": "grunt build",
     "watch": "grunt watch:dist",
     "grunt": "grunt"

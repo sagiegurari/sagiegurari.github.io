@@ -1,4 +1,9 @@
+html {
+  height: 100%;
+}
+
 body {
+  height: 100%;
   display: flex;
   flex-direction: column;
   flex-wrap: nowrap;
@@ -8,6 +13,11 @@ body {
 .button-collapse {
   display: block !important;
   font-size: 22px;
+}
+
+.main {
+  max-height: 100%;
+  height: 100%;
 }
 
 .top-nav {
@@ -23,10 +33,21 @@ body {
   padding: 12px;
 }
 
+.icon {
+  border-radius: 50%;
+}
+
+.job-icon {
+  width: 30px;
+  height: 30px;
+  margin-right: 10px;
+  position: relative;
+  top: 3px;
+}
+
 .avatar {
   width: 60px;
   height: 60px;
-  border-radius: 50%;
   margin-top: 8px;
   margin-bottom: 8px;
   margin-right: 16px;
@@ -49,4 +70,54 @@ body {
 
 .menu-icon {
   font-weight: 100 !important;
+}
+
+div.content {
+  position: relative;
+  display: flex;
+}
+
+.page {
+  padding: 10px;
+  flex-grow: 1;
+  color: #555;
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+}
+
+.page ul {
+  border: none;
+}
+
+ul.browser-default {
+  list-style-type: disc;
+}
+
+.page.show {
+  opacity: 1;
+}
+
+.page h3 {
+  font-size: 2rem;
+}
+
+.page h4 {
+  font-size: 1.5rem;
+}
+
+summary {
+  border-left: 0.25em solid #ddd;
+  padding: 0 10px;
+  line-height: 30px;
+}
+
+.job-description {
+  line-height: 30px;
+}
+
+.job-description li {
+  float: none;
 }
