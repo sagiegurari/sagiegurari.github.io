@@ -79,7 +79,8 @@ div.content {
   position: relative;
   display: flex;
   overflow-y: auto;
-  height: 100%;
+  height: calc(100% - 64px);
+  max-height: calc(100% - 64px);
   width: 100%;
 }
 
@@ -127,4 +128,5 @@ summary {
 
 .job-description li {
   float: none;
+  line-height: 18px;
 }
