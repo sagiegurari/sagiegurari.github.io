@@ -84,15 +84,13 @@ module.exports = function (grunt) {
         },
         copy: {
             dist: {
-                files: [
-                    {
-                        expand: true,
-                        cwd: 'node_modules/materialize-css/dist/',
-                        src: ['fonts/**'],
-                        dest: 'dist/',
-                        filter: 'isFile'
-                    }
-                ]
+                files: [{
+                    expand: true,
+                    cwd: 'node_modules/materialize-css/dist/',
+                    src: ['fonts/**'],
+                    dest: 'dist/',
+                    filter: 'isFile'
+                }]
             },
         },
         concat: {
@@ -138,13 +136,15 @@ module.exports = function (grunt) {
         watch: {
             dist: {
                 files: [
+                    '*.js',
                     'index.html',
                     'styles/**',
                     'lib/**'
                 ],
                 tasks: ['build'],
+                reload: true,
                 options: {
-                    spawn: false,
+                    spawn: false
                 }
             }
         }

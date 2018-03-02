@@ -37,11 +37,11 @@ body {
 }
 
 .job-icon {
-  width: 30px;
-  height: 30px;
+  width: 40px;
+  height: 40px;
   margin-right: 10px;
   position: relative;
-  top: 3px;
+  top: 9px;
 }
 
 .avatar {
@@ -92,7 +92,7 @@ div.content {
   top: 0;
   left: 0;
   opacity: 0;
-  transition: opacity 0.5s ease-in-out;
+  transition: opacity 0.3s ease-in-out;
 }
 
 .page ul {
@@ -117,9 +117,16 @@ ul.browser-default {
 }
 
 summary {
-  border-left: 0.25em solid #ddd;
   padding: 0 10px;
   line-height: 30px;
+}
+
+.resume summary {
+  border-left: 0.25em solid #ddd;
+}
+
+.repo-card summary {
+  margin-bottom: 40px;
 }
 
 .job-description {
@@ -142,18 +149,44 @@ summary {
 .repo-card {
   flex-grow: 0;
   display: flex;
-  width: 265px;
   font-size: 14px;
+  margin: 20px !important;
+  width: 310px;
+  height: auto !important;
 }
 
 .repo-card-content {
   width: 100%;
+  position: relative;
 }
 
 .repo-card .repo-header {
   background-color: #ededed;
   box-shadow: 0 1px 0 0 rgba(0, 0, 0, 0.2), 0 1px 1px 0 rgba(0, 0, 0, 0.14), 0 2px 1px -1px rgba(0, 0, 0, 0.12);
+  padding: 15px;
+}
+
+.repo-card .repo-footer {
   padding: 10px;
+  display: flex;
+  justify-content: center;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
+
+.repo-icon-wrapper {
+  flex-grow: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.repo-card .repo-icon-text {
+  margin-left: 10px;
+}
+
+.repo-card .repo-icon {
+  padding-top: 2px;
 }
 
 .circle {
