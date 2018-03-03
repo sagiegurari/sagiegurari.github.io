@@ -100,6 +100,7 @@ module.exports = function (grunt) {
             js: {
                 src: [
                     'lib/*.js',
+                    'node_modules/lodash.throttle/index.js',
                     '!lib/service-worker.js'
                 ],
                 dest: 'tmp/lib/app.js'

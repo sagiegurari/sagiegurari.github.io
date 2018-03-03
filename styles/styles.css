@@ -10,11 +10,15 @@ body {
   max-height: 100%;
 }
 
+.main.desktop {
+  padding-left: 300px;
+}
+
 .hidden {
   display: none;
 }
 
-.button-collapse {
+.button-collapse:not(.hidden) {
   display: block !important;
   font-size: 22px;
 }
