@@ -159,10 +159,22 @@ module.exports = function (grunt) {
         }
     });
 
+    grunt.registerTask('validateManifest', function () {
+        const validate = require('web-app-manifest-validator');
+        const manifest = require('./manifest.json');
+
+        const errors = validate(manifest);
+
+        if (errors && errors.length) {
+            grunt.fail.warn(errors[0]);
+        }
+    });
+
     grunt.registerTask('build', 'Run the full build flow.', [
         'clean:dist',
         'jsbeautifier:full',
         'jsonlint:format',
+        'validateManifest',
         'eslint:full',
         'stylelint:full',
         'cssmin:dist',
