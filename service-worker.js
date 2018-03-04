@@ -1,7 +1,9 @@
 (function () {
     'use strict';
 
-    const CACHE_VERSION = 3;
+    /*global fetch, self, cache, caches*/
+
+    const CACHE_VERSION = 4;
     const CURRENT_CACHES = {
         assets: 'assets-v' + CACHE_VERSION,
         data: 'data-v' + CACHE_VERSION
@@ -18,35 +20,22 @@
         '.githubusercontent.com/u/'
     ];
 
-    const app = (function () {
-        const appModule = {
-            deleteOldCache() {
-                const expectedCacheNames = Object.keys(CURRENT_CACHES).map(function (key) {
-                    return CURRENT_CACHES[key];
-                });
-
-                const deleteOldCaches = function (cacheNames) {
-                    return cacheNames.map(function (cacheName) {
-                        if (expectedCacheNames.indexOf(cacheName) === -1) {
-                            return caches.delete(cacheName);
-                        }
-
-                        return undefined;
-                    });
-                };
-
-                return caches.keys().then(function (cacheNames) {
-                    return Promise.all(deleteOldCaches(cacheNames));
-                });
-            }
-        };
-
-        return appModule;
-    }());
-
     self.addEventListener('activate', function (event) {
         console.log('[service worker] activated.');
-        event.waitUntil(app.deleteOldCache);
+
+        const expectedCacheNames = Object.keys(CURRENT_CACHES).map(function (key) {
+            return CURRENT_CACHES[key];
+        });
+
+        event.waitUntil(caches.keys().then(function (cacheNames) {
+            return Promise.all(cacheNames.map(function (cacheName) {
+                if (expectedCacheNames.indexOf(cacheName) === -1) {
+                    console.log('[service worker] deleting cache: ', cacheName);
+
+                    return caches.delete(cacheName);
+                }
+            }));
+        }));
     });
 
     self.addEventListener('fetch', function (event) {
