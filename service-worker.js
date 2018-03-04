@@ -3,10 +3,9 @@
 
     /*global fetch, self, cache, caches*/
 
-    const CACHE_VERSION = 4;
     const CURRENT_CACHES = {
-        assets: 'assets-v' + CACHE_VERSION,
-        data: 'data-v' + CACHE_VERSION
+        assets: 'assets-v5',
+        data: 'data-v4'
     };
     const CACHED_EXTENSIONS = [
         '.png',
