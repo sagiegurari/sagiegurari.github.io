@@ -1,0 +1,202 @@
+body {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+}
+
+.full {
+  height: 100%;
+  max-height: 100%;
+}
+
+.main.desktop {
+  padding-left: 300px;
+}
+
+.hidden {
+  display: none;
+}
+
+.button-collapse:not(.hidden) {
+  display: block !important;
+  font-size: 22px;
+}
+
+.top-nav {
+  background-color: #409f62 !important;
+}
+
+.side-banner {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  background-color: #409f62;
+  background-image: repeating-linear-gradient(45deg, transparent, transparent 35px, rgba(255, 255, 255, 0.2) 35px, rgba(255, 255, 255, 0.2) 70px);
+  padding: 12px;
+}
+
+.icon {
+  border-radius: 50%;
+}
+
+.job-icon {
+  width: 40px;
+  height: 40px;
+  margin-right: 10px;
+  position: relative;
+  top: 9px;
+}
+
+.avatar {
+  width: 60px;
+  height: 60px;
+  margin-top: 8px;
+  margin-bottom: 8px;
+  margin-right: 16px;
+}
+
+.author {
+  font-size: 16px;
+  line-height: 18px;
+  margin-top: 20px;
+  margin-bottom: 3px;
+  color: white;
+}
+
+.mail {
+  font-size: 14px;
+  line-height: 18px;
+  margin-top: 0;
+  color: rgb(220, 220, 220);
+}
+
+.menu-icon {
+  font-weight: 100 !important;
+}
+
+.main {
+  overflow: hidden;
+}
+
+div.content {
+  position: relative;
+  display: flex;
+  overflow-y: auto;
+  height: calc(100% - 64px);
+  max-height: calc(100% - 64px);
+  width: 100%;
+}
+
+.page {
+  padding: 10px;
+  flex-grow: 1;
+  color: #555;
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.page ul {
+  border: none;
+}
+
+ul.browser-default {
+  list-style-type: disc;
+}
+
+.page.show {
+  display: block;
+  opacity: 1;
+}
+
+.page h3 {
+  font-size: 2rem;
+}
+
+.page h4 {
+  font-size: 1.5rem;
+}
+
+summary {
+  padding: 0 10px;
+  line-height: 30px;
+}
+
+.resume summary {
+  border-left: 0.25em solid #ddd;
+}
+
+.repo-card summary {
+  margin-bottom: 40px;
+}
+
+.job-description {
+  line-height: 30px;
+}
+
+.job-description li {
+  float: none;
+  line-height: 18px;
+}
+
+.repo-grid {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.repo-card {
+  flex-grow: 0;
+  display: flex;
+  font-size: 14px;
+  margin: 20px !important;
+  width: 310px;
+  height: auto !important;
+}
+
+.repo-card-content {
+  width: 100%;
+  position: relative;
+}
+
+.repo-card .repo-header {
+  background-color: #ededed;
+  box-shadow: 0 1px 0 0 rgba(0, 0, 0, 0.2), 0 1px 1px 0 rgba(0, 0, 0, 0.14), 0 2px 1px -1px rgba(0, 0, 0, 0.12);
+  padding: 15px;
+}
+
+.repo-card .repo-footer {
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
+
+.repo-icon-wrapper {
+  flex-grow: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.repo-card .repo-icon-text {
+  margin-left: 10px;
+}
+
+.repo-card .repo-icon {
+  padding-top: 2px;
+}
+
+.circle {
+  display: inline-block;
+  margin-right: 10px;
+  border-radius: 50%;
+  width: 8px;
+  height: 8px;
+}

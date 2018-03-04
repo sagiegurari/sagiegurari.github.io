@@ -1,7 +1,6 @@
 .c9
-_site
-.jekyll-metadata
 node_modules
-.sass-cache
-_data/test.json
+target
+tmp
+*.log
 /commit.sh
