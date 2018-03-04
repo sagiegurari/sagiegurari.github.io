@@ -3,7 +3,6 @@
 
     const CACHE_VERSION = 1;
     const CURRENT_CACHES = {
-        resources: 'resources-v' + CACHE_VERSION,
         data: 'data-v' + CACHE_VERSION
     };
 
@@ -34,6 +33,18 @@
     }());
 
     self.addEventListener('activate', function (event) {
+        console.log('[service worker] activated.');
         event.waitUntil(app.deleteOldCache);
+    });
+
+    self.addEventListener('fetch', function (event) {
+        if (event.request.url.indexOf('api.github.com/users/sagiegurari') !== -1) {
+            event.respondWith(caches.open(CURRENT_CACHES.data).then(function (cache) {
+                return fetch(event.request).then(function (response) {
+                    cache.put(event.request.url, response.clone());
+                    return response;
+                });
+            }));
+        }
     });
 }());

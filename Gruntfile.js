@@ -84,13 +84,21 @@ module.exports = function (grunt) {
         },
         copy: {
             dist: {
-                files: [{
-                    expand: true,
-                    cwd: 'node_modules/materialize-css/dist/',
-                    src: ['fonts/**'],
-                    dest: 'dist/',
-                    filter: 'isFile'
-                }]
+                files: [
+                    {
+                        expand: true,
+                        cwd: 'node_modules/materialize-css/dist/',
+                        src: ['fonts/**'],
+                        dest: 'dist/',
+                        filter: 'isFile'
+                    },
+                    {
+                        expand: true,
+                        src: ['images/**'],
+                        dest: 'dist/',
+                        filter: 'isFile'
+                    }
+                ]
             },
         },
         concat: {
@@ -100,8 +108,7 @@ module.exports = function (grunt) {
             js: {
                 src: [
                     'lib/*.js',
-                    'node_modules/lodash.throttle/index.js',
-                    '!lib/service-worker.js'
+                    'node_modules/lodash.throttle/index.js'
                 ],
                 dest: 'tmp/lib/app.js'
             },
@@ -129,8 +136,7 @@ module.exports = function (grunt) {
             },
             dist: {
                 files: {
-                    'tmp/lib/app-min.js': 'tmp/lib/app.js',
-                    'dist/lib/service-worker.js': 'lib/service-worker.js'
+                    'tmp/lib/app-min.js': 'tmp/lib/app.js'
                 }
             }
         },
@@ -138,9 +144,11 @@ module.exports = function (grunt) {
             dist: {
                 files: [
                     '*.js',
+                    '*.json',
                     'index.html',
                     'styles/**',
-                    'lib/**'
+                    'lib/**',
+                    'images/**'
                 ],
                 tasks: ['build'],
                 reload: true,
