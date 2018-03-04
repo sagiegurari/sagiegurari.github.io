@@ -1,7 +1,7 @@
 (function () {
     'use strict';
 
-    const CACHE_VERSION = 2;
+    const CACHE_VERSION = 3;
     const CURRENT_CACHES = {
         assets: 'assets-v' + CACHE_VERSION,
         data: 'data-v' + CACHE_VERSION
