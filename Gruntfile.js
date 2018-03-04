@@ -107,8 +107,8 @@ module.exports = function (grunt) {
             },
             js: {
                 src: [
-                    'lib/*.js',
-                    'node_modules/lodash.throttle/index.js'
+                    'node_modules/fetch-ie8/fetch.js',
+                    'lib/*.js'
                 ],
                 dest: 'tmp/lib/app.js'
             },
