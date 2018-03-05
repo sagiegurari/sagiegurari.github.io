@@ -23,6 +23,7 @@
   },
   "dependencies": {
     "fetch-ie8": "^1.5.0",
+    "handlebars": "^4.0.11",
     "jquery": "^3.3.1",
     "materialize-css": "^0.100.2",
     "normalize.css": "^8.0.0",

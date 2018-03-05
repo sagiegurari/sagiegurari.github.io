@@ -123,8 +123,9 @@ module.exports = function (grunt) {
                 src: [
                     'node_modules/promise-polyfill/dist/polyfill.min.js',
                     'node_modules/jquery/dist/jquery.min.js',
-                    'tmp/lib/app-min.js',
-                    'node_modules/materialize-css/dist/js/materialize.min.js'
+                    'node_modules/materialize-css/dist/js/materialize.min.js',
+                    'node_modules/handlebars/dist/handlebars.min.js',
+                    'tmp/lib/app-min.js'
                 ],
                 dest: 'dist/lib/app.js'
             },
