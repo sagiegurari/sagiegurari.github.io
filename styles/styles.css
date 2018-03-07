@@ -201,3 +201,7 @@ summary {
   width: 8px;
   height: 8px;
 }
+
+.legacy-style .page {
+  max-width: 100%;
+}
