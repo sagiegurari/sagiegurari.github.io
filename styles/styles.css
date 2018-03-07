@@ -90,6 +90,7 @@ div.content {
 }
 
 .page {
+  max-width: 100%;
   padding: 10px;
   flex-grow: 1;
   color: #555;
@@ -200,8 +201,4 @@ summary {
   border-radius: 50%;
   width: 8px;
   height: 8px;
-}
-
-.legacy-style .page {
-  max-width: 100%;
 }
