@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en" class="full">
+
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+
+        <title>Sagie Gur-Ari</title>
+        <meta name="description" content="Personal Website of Sagie Gur-Ari">
+
+        <link rel="stylesheet" type="text/css" href="dist/styles/styles.css">
+        <link href="https://use.fontawesome.com/releases/v5.0.7/css/all.css" rel="stylesheet" media="screen,projection">
+
+        <link rel="manifest" href="/manifest.json">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+        <meta name="apple-mobile-web-app-title" content="Sagie - Personal Website">
+        <link rel="apple-touch-icon" href="dist/images/avatar-152.png">
+        <meta name="msapplication-TileImage" content="dist/images/avatar-144.png">
+        <meta name="msapplication-TileColor" content="#2F3BA2">
+    </head>
+
+    <body class="full">
+        <%= sidenav %>
+        <div class="main full">
+            <nav class="top-nav">
+                <a href="#" data-activates="slide-out" class="button-collapse waves-effect"><i class="fa fa-bars"></i></a>
+            </nav>
+            <div class="content">
+                <%= projectsPage %>
+                <%= resumePage %>
+            </div>
+        </div>
+
+        <script src="dist/lib/app.js"></script>
+    </body>
+
+</html>

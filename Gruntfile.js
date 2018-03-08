@@ -38,7 +38,8 @@ module.exports = function (grunt) {
                     'index.html',
                     '*.js',
                     'lib/**/*',
-                    'styles/**/*'
+                    'styles/**/*',
+                    'partials/**/*'
                 ]
             }
         },
@@ -68,6 +69,28 @@ module.exports = function (grunt) {
                         'node_modules/normalize.css/normalize.css',
                         'styles/*.css'
                     ]
+                }
+            }
+        },
+        template: {
+            html: {
+                files: {
+                    'index.html': [
+                        'templates/index.html'
+                    ]
+                },
+                options: {
+                    data: {
+                        sidenav: grunt.file.read('./partials/sidenav.html', {
+                            encoding: 'utf8'
+                        }),
+                        projectsPage: grunt.file.read('./partials/projects-page.html', {
+                            encoding: 'utf8'
+                        }),
+                        resumePage: grunt.file.read('./partials/resume-page.html', {
+                            encoding: 'utf8'
+                        })
+                    }
                 }
             }
         },
@@ -147,10 +170,11 @@ module.exports = function (grunt) {
                 files: [
                     '*.js',
                     '*.json',
-                    'index.html',
                     'styles/**',
                     'lib/**',
-                    'images/**'
+                    'images/**',
+                    'templates/**',
+                    'partials/**'
                 ],
                 tasks: ['build'],
                 reload: true,
@@ -174,6 +198,7 @@ module.exports = function (grunt) {
 
     grunt.registerTask('build', 'Run the full build flow.', [
         'clean:dist',
+        'template:html',
         'jsbeautifier:full',
         'jsonlint:format',
         'validateManifest',
