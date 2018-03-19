@@ -4,7 +4,7 @@
     /*global fetch, self, cache, caches*/
 
     const CURRENT_CACHES = {
-        assets: 'assets-v8',
+        assets: 'assets-v9',
         data: 'data-v4'
     };
     const CACHED_EXTENSIONS = [

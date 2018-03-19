@@ -40,6 +40,10 @@ body {
   border-radius: 50%;
 }
 
+.side-nav li a.side-link {
+  font-size: 16px;
+}
+
 .job-icon {
   width: 40px;
   height: 40px;
@@ -57,7 +61,7 @@ body {
 }
 
 .author {
-  font-size: 16px;
+  font-size: 18px;
   line-height: 18px;
   margin-top: 20px;
   margin-bottom: 3px;
@@ -65,7 +69,7 @@ body {
 }
 
 .mail {
-  font-size: 14px;
+  font-size: 16px;
   line-height: 18px;
   margin-top: 0;
   color: rgb(220, 220, 220);
@@ -155,7 +159,7 @@ summary {
 .repo-card {
   flex-grow: 0;
   display: flex;
-  font-size: 14px;
+  font-size: 16px;
   margin: 20px !important;
   width: 310px;
   height: auto !important;
@@ -170,6 +174,10 @@ summary {
   background-color: #ededed;
   box-shadow: 0 1px 0 0 rgba(0, 0, 0, 0.2), 0 1px 1px 0 rgba(0, 0, 0, 0.14), 0 2px 1px -1px rgba(0, 0, 0, 0.12);
   padding: 15px;
+}
+
+.repo-card .repo-header a {
+  color: #038fd8;
 }
 
 .repo-card .repo-footer {
