@@ -1,6 +1,10 @@
 {
   "name": "Sagie - Personal Website",
   "short_name": "Sagie",
+  "start_url": "/index.html",
+  "display": "standalone",
+  "background_color": "#409f62",
+  "theme_color": "#409f62",
   "icons": [
     {
       "src": "dist/images/avatar-128.png",
@@ -27,9 +31,5 @@
       "sizes": "256x256",
       "type": "image/png"
     }
-  ],
-  "start_url": "/index.html",
-  "display": "standalone",
-  "background_color": "#409f62",
-  "theme_color": "#409f62"
+  ]
 }
