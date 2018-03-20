@@ -5,7 +5,7 @@
 
     const CURRENT_CACHES = {
         data: 'data-v4',
-        assets: 'assets-v15'
+        assets: 'assets-v16'
     };
     const CACHED_EXTENSIONS = [
         '.png',
