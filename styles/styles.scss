@@ -93,6 +93,10 @@ div.content {
   width: 100%;
 }
 
+ul.browser-default {
+  list-style-type: disc;
+}
+
 .page {
   max-width: 100%;
   padding: 10px;
@@ -103,27 +107,23 @@ div.content {
   left: 0;
   opacity: 0;
   transition: opacity 0.3s ease-in-out;
-}
 
-.page ul {
-  border: none;
-}
+  &.show {
+    display: block;
+    opacity: 1;
+  }
 
-ul.browser-default {
-  list-style-type: disc;
-}
+  ul {
+    border: none;
+  }
 
-.page.show {
-  display: block;
-  opacity: 1;
-}
+  h3 {
+    font-size: 2rem;
+  }
 
-.page h3 {
-  font-size: 2rem;
-}
-
-.page h4 {
-  font-size: 1.5rem;
+  h4 {
+    font-size: 1.5rem;
+  }
 }
 
 summary {
@@ -135,18 +135,13 @@ summary {
   border-left: 0.25em solid #ddd;
 }
 
-.repo-card summary {
-  margin-bottom: 40px;
-  padding-top: 10px;
-}
-
 .job-description {
   line-height: 30px;
-}
 
-.job-description li {
-  float: none;
-  line-height: 18px;
+  li {
+    float: none;
+    line-height: 18px;
+  }
 }
 
 .repo-grid {
@@ -164,6 +159,38 @@ summary {
   margin: 20px !important;
   width: 294px;
   height: auto !important;
+
+  summary {
+    margin-bottom: 40px;
+    padding-top: 10px;
+  }
+
+  .repo-header {
+    background-color: #ededed;
+    box-shadow: 0 1px 0 0 rgba(0, 0, 0, 0.2), 0 1px 1px 0 rgba(0, 0, 0, 0.14), 0 2px 1px -1px rgba(0, 0, 0, 0.12);
+    padding: 15px;
+
+    a {
+      color: #038fd8;
+    }
+  }
+
+  .repo-footer {
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+  }
+
+  .repo-icon-text {
+    margin-left: 10px;
+  }
+
+  .repo-icon {
+    padding-top: 2px;
+  }
 }
 
 .repo-card-content {
@@ -171,37 +198,10 @@ summary {
   position: relative;
 }
 
-.repo-card .repo-header {
-  background-color: #ededed;
-  box-shadow: 0 1px 0 0 rgba(0, 0, 0, 0.2), 0 1px 1px 0 rgba(0, 0, 0, 0.14), 0 2px 1px -1px rgba(0, 0, 0, 0.12);
-  padding: 15px;
-}
-
-.repo-card .repo-header a {
-  color: #038fd8;
-}
-
-.repo-card .repo-footer {
-  padding: 10px;
-  display: flex;
-  justify-content: center;
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-}
-
 .repo-icon-wrapper {
   flex-grow: 1;
   display: flex;
   justify-content: center;
-}
-
-.repo-card .repo-icon-text {
-  margin-left: 10px;
-}
-
-.repo-card .repo-icon {
-  padding-top: 2px;
 }
 
 .circle {

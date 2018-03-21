@@ -38,7 +38,6 @@ module.exports = function (grunt) {
                     'index.html',
                     '*.js',
                     'lib/**/*',
-                    'styles/**/*',
                     'partials/**/*'
                 ]
             }
@@ -56,15 +55,19 @@ module.exports = function (grunt) {
                 options: {
                     configFile: 'stylelint.config.js',
                     formatter: 'string',
-                    allowEmptyInput: true
+                    allowEmptyInput: true,
+                    fix: true
                 },
-                src: ['styles/*.css']
+                src: [
+                    'styles/*'
+                ]
             }
         },
         postcss: {
             options: {
                 map: false,
                 processors: [
+                    require('postcss-nested')(),
                     require('autoprefixer')(),
                     require('cssnano')()
                 ]
@@ -139,7 +142,7 @@ module.exports = function (grunt) {
             unminified: {
                 src: [
                     'node_modules/normalize.css/normalize.css',
-                    'styles/*.css'
+                    'styles/*'
                 ],
                 dest: 'tmp/styles/styles.css'
             },
@@ -211,8 +214,8 @@ module.exports = function (grunt) {
         'jsonlint:format',
         'validateManifest',
         'eslint:full',
-        'stylelint:full',
         'concat:unminified',
+        'stylelint:full',
         'postcss:styles',
         'concat:css',
         'htmlmin:dist',
