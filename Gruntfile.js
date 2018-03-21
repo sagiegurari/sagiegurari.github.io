@@ -61,15 +61,16 @@ module.exports = function (grunt) {
                 src: ['styles/*.css']
             }
         },
-        cssmin: {
-            options: {},
-            dist: {
-                files: {
-                    'tmp/styles/styles.css': [
-                        'node_modules/normalize.css/normalize.css',
-                        'styles/*.css'
-                    ]
-                }
+        postcss: {
+            options: {
+                map: false,
+                processors: [
+                    require('autoprefixer')(),
+                    require('cssnano')()
+                ]
+            },
+            styles: {
+                src: 'tmp/styles/styles.css'
             }
         },
         template: {
@@ -134,6 +135,13 @@ module.exports = function (grunt) {
                     'lib/*.js'
                 ],
                 dest: 'tmp/lib/app.js'
+            },
+            unminified: {
+                src: [
+                    'node_modules/normalize.css/normalize.css',
+                    'styles/*.css'
+                ],
+                dest: 'tmp/styles/styles.css'
             },
             css: {
                 src: [
@@ -204,7 +212,8 @@ module.exports = function (grunt) {
         'validateManifest',
         'eslint:full',
         'stylelint:full',
-        'cssmin:dist',
+        'concat:unminified',
+        'postcss:styles',
         'concat:css',
         'htmlmin:dist',
         'concat:js',
