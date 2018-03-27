@@ -51,6 +51,7 @@
     "grunt-webpack": "^3.1.1",
     "jit-grunt": "^0.10.0",
     "postcss-nested": "^3.0.0",
+    "raw-loader": "^0.5.1",
     "stylelint": "^9.1.1",
     "stylelint-config-standard": "^18.1.0",
     "time-grunt": "^1.4.0",

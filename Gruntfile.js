@@ -134,7 +134,8 @@ module.exports = function (grunt) {
                 stats: true
             },
             development: Object.assign({
-                devtool: true
+                devtool: true,
+                mode: 'development'
             }, webpackConfig),
             production: webpackConfig
         },
@@ -155,6 +156,16 @@ module.exports = function (grunt) {
                     'node_modules/materialize-css/dist/css/materialize.min.css'
                 ],
                 dest: 'dist/styles/styles.css'
+            },
+            js: {
+                src: [
+                    'node_modules/promise-polyfill/dist/polyfill.min.js',
+                    'node_modules/jquery/dist/jquery.min.js',
+                    'node_modules/materialize-css/dist/js/materialize.min.js',
+                    'node_modules/handlebars/dist/handlebars.min.js',
+                    'tmp/lib/app-pack.js'
+                ],
+                dest: 'dist/lib/app.js'
             }
         },
         watch: {
@@ -168,7 +179,7 @@ module.exports = function (grunt) {
                     'templates/**',
                     'partials/**'
                 ],
-                tasks: ['build-dev'],
+                tasks: ['build'],
                 reload: true,
                 atBegin: true,
                 options: {
@@ -189,7 +200,7 @@ module.exports = function (grunt) {
         }
     });
 
-    grunt.registerTask('pre-webpack', [
+    grunt.registerTask('build', [
         'clean:dist',
         'template:html',
         'jsbeautifier:full',
@@ -201,16 +212,8 @@ module.exports = function (grunt) {
         'postcss:styles',
         'concat:css',
         'htmlmin:dist',
-        'copy:assets'
-    ]);
-
-    grunt.registerTask('build-dev', 'Run the full build flow.', [
-        'pre-webpack',
-        'webpack:development'
-    ]);
-
-    grunt.registerTask('build', 'Run the full build flow.', [
-        'pre-webpack',
-        'webpack:production'
+        'copy:assets',
+        'webpack:production',
+        'concat:js'
     ]);
 };

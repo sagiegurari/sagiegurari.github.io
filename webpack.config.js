@@ -1,32 +1,33 @@
 'use strict';
 
 const path = require('path');
-const webpack = require('webpack');
 
 module.exports = {
     entry: './lib/app.js',
     output: {
-        path: path.resolve(__dirname, 'dist/lib'),
-        filename: 'app.js'
+        path: path.resolve(__dirname, 'tmp/lib'),
+        filename: 'app-pack.js'
     },
     devtool: false,
+    mode: 'production',
     module: {
-        rules: [{
-            test: /\.js$/,
-            exclude: /node_modules/,
-            use: {
-                loader: 'babel-loader',
-                options: {
-                    minified: false,
-                    presets: ['env']
+        rules: [
+            {
+                test: /\.js$/,
+                exclude: /node_modules/,
+                use: {
+                    loader: 'babel-loader',
+                    options: {
+                        sourceMap: true,
+                        minified: true,
+                        presets: ['env']
+                    }
                 }
-            }
-        }]
-    },
-    plugins: [
-        new webpack.ProvidePlugin({
-            $: "jquery",
-            jQuery: "jquery"
-        })
-    ]
+            },
+            {
+                test: /\.hbs$/,
+                use: 'raw-loader'
+              }
+        ]
+    }
 };
