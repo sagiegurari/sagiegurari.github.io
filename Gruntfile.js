@@ -4,6 +4,8 @@ module.exports = function (grunt) {
     require('time-grunt')(grunt);
     require('jit-grunt')(grunt);
 
+    const webpackConfig = require('./webpack.config.js');
+
     grunt.config.init({
         clean: {
             options: {
@@ -110,9 +112,8 @@ module.exports = function (grunt) {
             }
         },
         copy: {
-            dist: {
-                files: [
-                    {
+            assets: {
+                files: [{
                         expand: true,
                         cwd: 'node_modules/materialize-css/dist/',
                         src: ['fonts/**'],
@@ -128,16 +129,19 @@ module.exports = function (grunt) {
                 ]
             },
         },
+        webpack: {
+            options: {
+                stats: true
+            },
+            development: Object.assign({
+                devtool: true,
+                mode: 'development'
+            }, webpackConfig),
+            production: webpackConfig
+        },
         concat: {
             options: {
                 sourceMap: true
-            },
-            js: {
-                src: [
-                    'node_modules/fetch-ie8/fetch.js',
-                    'lib/*.js'
-                ],
-                dest: 'tmp/lib/app.js'
             },
             unminified: {
                 src: [
@@ -153,27 +157,15 @@ module.exports = function (grunt) {
                 ],
                 dest: 'dist/styles/styles.css'
             },
-            dist: {
+            js: {
                 src: [
                     'node_modules/promise-polyfill/dist/polyfill.min.js',
                     'node_modules/jquery/dist/jquery.min.js',
                     'node_modules/materialize-css/dist/js/materialize.min.js',
                     'node_modules/handlebars/dist/handlebars.min.js',
-                    'tmp/lib/app-min.js'
+                    'tmp/lib/app-pack.js'
                 ],
                 dest: 'dist/lib/app.js'
-            },
-        },
-        babel: {
-            options: {
-                sourceMap: true,
-                minified: true,
-                presets: ['env']
-            },
-            dist: {
-                files: {
-                    'tmp/lib/app-min.js': 'tmp/lib/app.js'
-                }
             }
         },
         watch: {
@@ -189,6 +181,7 @@ module.exports = function (grunt) {
                 ],
                 tasks: ['build'],
                 reload: true,
+                atBegin: true,
                 options: {
                     spawn: false
                 }
@@ -207,21 +200,20 @@ module.exports = function (grunt) {
         }
     });
 
-    grunt.registerTask('build', 'Run the full build flow.', [
+    grunt.registerTask('build', [
         'clean:dist',
         'template:html',
         'jsbeautifier:full',
         'jsonlint:format',
         'validateManifest',
         'eslint:full',
-        'concat:unminified',
         'stylelint:full',
+        'concat:unminified',
         'postcss:styles',
         'concat:css',
         'htmlmin:dist',
-        'concat:js',
-        'babel:dist',
-        'concat:dist',
-        'copy:dist'
+        'copy:assets',
+        'webpack:production',
+        'concat:js'
     ]);
 };
