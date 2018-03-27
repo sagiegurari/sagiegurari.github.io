@@ -169,7 +169,7 @@ module.exports = function (grunt) {
             }
         },
         watch: {
-            dist: {
+            production: {
                 files: [
                     '*.js',
                     '*.json',
@@ -215,5 +215,10 @@ module.exports = function (grunt) {
         'copy:assets',
         'webpack:production',
         'concat:js'
+    ]);
+
+    grunt.registerTask('buildAndWatch', [
+        'build',
+        'watch:production'
     ]);
 };

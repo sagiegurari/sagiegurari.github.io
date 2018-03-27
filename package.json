@@ -18,7 +18,7 @@
     "startLocal": "static-server -p 8090",
     "startRemote": "static-server -p $PORT",
     "build": "grunt build",
-    "watch": "grunt watch:dist",
+    "watch": "grunt buildAndWatch",
     "grunt": "grunt",
     "stylelint": "stylelint --config ./stylelint.config.js"
   },
