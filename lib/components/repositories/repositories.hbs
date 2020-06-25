@@ -1,21 +1,21 @@
 {{#each repositories}}
-<li class="card small repo-card">
-    <div class="white-text-content small repo-card-content">
-        <header class="repo-header">
-            <span class="circle {{colorClass}}"></span>
-            <a href="{{url}}">{{name}} {{languageName}}</a>
-        </header>
-        <summary class="repo-info">{{description}}</summary>
-        <footer class="repo-footer">
-            <div class="repo-icon-wrapper">
-                <span class="repo-icon fas fa-star"></span>
-                <span class="repo-icon-text">{{starsCount}}</span>
-            </div>
-            <div class="repo-icon-wrapper">
-                <span class="repo-icon fas fa-code-branch"></span>
-                <span class="repo-icon-text">{{forksCount}}</span>
-            </div>
-        </footer>
-    </div>
-</li>
+    <li class="card small repo-card">
+        <div class="white-text-content small repo-card-content">
+            <header class="repo-header">
+                <span class="circle {{colorClass}}"></span>
+                <a href="{{url}}">{{name}} {{languageName}}</a>
+            </header>
+            <summary class="repo-info">{{description}}</summary>
+            <footer class="repo-footer">
+                <div class="repo-icon-wrapper">
+                    <span class="repo-icon fas fa-star"></span>
+                    <span class="repo-icon-text">{{starsCount}}</span>
+                </div>
+                <div class="repo-icon-wrapper">
+                    <span class="repo-icon fas fa-code-branch"></span>
+                    <span class="repo-icon-text">{{forksCount}}</span>
+                </div>
+            </footer>
+        </div>
+    </li>
 {{/each}}
