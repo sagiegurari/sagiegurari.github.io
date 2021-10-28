@@ -1,8 +1,6 @@
 (function () {
     'use strict';
 
-    /*global fetch, self, cache, caches*/
-
     const CURRENT_CACHES = {
         data: 'data-v-5',
         assets: 'assets-v-35'

@@ -14,48 +14,27 @@
     "url": "http://github.com/sagiegurari/sagiegurari.github.io.git"
   },
   "scripts": {
+    "clean": "rm -Rf ./dist ./tmp",
+    "format": "js-beautify --config ./.jsbeautifyrc --file ./*.html ./*.js ./lib/**/*.js ./partials/**/*.html",
+    "lint-js": "eslint ./*.js ./lib/**/*.js",
+    "lint-css": "stylelint --allow-empty-input ./styles/**/*css",
+    "lint": "npm run lint-js && npm run lint-css",
     "install-server": "npm install -g static-server",
-    "start": "static-server -p 8080",
-    "build": "grunt build",
-    "watch": "grunt buildAndWatch",
-    "grunt": "grunt",
-    "stylelint": "stylelint --config ./stylelint.config.js"
+    "start": "static-server -p 8080"
   },
   "dependencies": {
     "fetch-ie8": "^1",
     "handlebars": "^4",
     "jquery": "^3",
-    "materialize-css": "^0.100",
+    "materialize-css": "^1",
     "normalize.css": "^8",
-    "promise-polyfill": "^7"
+    "promise-polyfill": "^8"
   },
   "devDependencies": {
-    "autoprefixer": "^8",
-    "babel-core": "^6",
-    "babel-loader": "^7",
-    "babel-preset-env": "^1",
-    "cssnano": "^3",
-    "grunt": "^1",
-    "grunt-contrib-clean": "^1",
-    "grunt-contrib-concat": "^1",
-    "grunt-contrib-copy": "^1",
-    "grunt-contrib-htmlmin": "^2",
-    "grunt-contrib-watch": "^1",
-    "grunt-eslint": "^20",
-    "grunt-jsbeautifier": "^0.2",
-    "grunt-jsonlint": "^1",
-    "grunt-postcss": "^0.9",
-    "grunt-stylelint": "^0.9",
-    "grunt-template": "^1",
-    "grunt-webpack": "^3",
-    "jit-grunt": "^0.10",
-    "postcss-nested": "^3",
-    "raw-loader": "^0.5",
-    "stylelint": "^9",
-    "stylelint-config-standard": "^18",
-    "time-grunt": "^1",
-    "web-app-manifest-validator": "^1",
-    "webpack": "^4"
+    "eslint": "^8",
+    "js-beautify": "^1",
+    "stylelint": "^13",
+    "stylelint-config-standard": "^22"
   },
   "browserslist": [
     "> 1%",

@@ -4,3 +4,6 @@ target
 tmp
 *.log
 /commit.sh
+npm-debug.log
+.nyc_output
+coverage
