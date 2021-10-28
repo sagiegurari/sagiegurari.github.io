@@ -19,6 +19,14 @@
     "lint-js": "eslint ./*.js ./lib/**/*.js",
     "lint-css": "stylelint --allow-empty-input ./styles/**/*css",
     "lint": "npm run lint-js && npm run lint-css",
+    "bundle-js": "esbuild ./lib/app.js --bundle --outfile=./dist/app.js --loader:.hbs=text $*",
+    "bundle-js-production": "npm run bundle-js -- --minify --sourcemap",
+    "bundle-css": "postcss ./styles/ ./node_modules/normalize.css/normalize.css --map --dir ./tmp/styles/ --use postcss-nested --use autoprefixer --use cssnano && rm -Rf ./dist/styles/ && mkdir -p ./dist/styles/ && cat ./tmp/styles/*css >> ./dist/styles/styles.css",
+    "bundle-html": "html-minifier --output ./dist/index.html --collapse-whitespace --remove-comments --remove-empty-attributes --remove-optional-tags --remove-redundant-attributes --remove-script-type-attributes --remove-tag-whitespace --use-short-doctype ./index.html",
+    "copy-assets": "cp ./images/* ./dist/ && cp ./node_modules/materialize-css/dist/fonts/* ./dist/",
+    "bundle-common": "npm run bundle-css && npm run bundle-html && npm run copy-assets",
+    "bundle-dev": "npm run clean && npm run bundle-js && npm run bundle-common",
+    "bundle-production": "npm run clean && npm run bundle-js-production && npm run bundle-common",
     "install-server": "npm install -g static-server",
     "start": "static-server -p 8080"
   },
@@ -31,8 +39,15 @@
     "promise-polyfill": "^8"
   },
   "devDependencies": {
+    "autoprefixer": "^10",
+    "cssnano": "^5",
+    "esbuild": "^0.13",
     "eslint": "^8",
+    "html-minifier": "^4",
     "js-beautify": "^1",
+    "postcss": "^8",
+    "postcss-cli": "^9",
+    "postcss-nested": "^5",
     "stylelint": "^13",
     "stylelint-config-standard": "^22"
   },
