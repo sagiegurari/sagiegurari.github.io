@@ -22,7 +22,7 @@
     "bundle-js": "esbuild ./lib/app.js --bundle --outfile=./dist/lib/app.js --loader:.hbs=text $*",
     "bundle-js-production": "npm run bundle-js -- --minify --sourcemap",
     "bundle-css": "postcss ./styles/ --dir ./tmp/styles/ --use postcss-nested --use autoprefixer --use cssnano && rm -Rf ./dist/styles/ && mkdir -p ./dist/styles/ && cat ./tmp/styles/*css >> ./dist/styles/styles.css",
-    "bundle-html": "posthtml --help && mkdir -p ./tmp && posthtml ./partials/index.html -o ./tmp/index.html -u posthtml-modules && html-minifier --output ./dist/index.html --collapse-whitespace --remove-comments --remove-empty-attributes --remove-optional-tags --remove-redundant-attributes --remove-script-type-attributes --remove-tag-whitespace --use-short-doctype ./index.html",
+    "bundle-html": "mkdir -p ./tmp && posthtml ./partials/index.html -o ./tmp/index.html -u posthtml-modules && html-minifier --output ./index.html --collapse-whitespace --remove-comments --remove-empty-attributes --remove-optional-tags --remove-redundant-attributes --remove-script-type-attributes --remove-tag-whitespace --use-short-doctype ./tmp/index.html",
     "copy-assets": "mkdir -p ./dist/images/ && cp ./images/* ./dist/images/",
     "bundle-common": "npm run bundle-css && npm run bundle-html && npm run copy-assets",
     "bundle-dev": "npm run clean && npm run bundle-js && npm run bundle-common",
