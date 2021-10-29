@@ -21,7 +21,7 @@
     "lint": "npm run lint-js && npm run lint-css",
     "bundle-js": "esbuild ./lib/app.js --bundle --outfile=./dist/lib/app.js --loader:.hbs=text $*",
     "bundle-js-production": "npm run bundle-js -- --minify --sourcemap",
-    "bundle-css": "postcss ./styles/ ./node_modules/normalize.css/normalize.css --map --dir ./tmp/styles/ --use postcss-nested --use autoprefixer --use cssnano && rm -Rf ./dist/styles/ && mkdir -p ./dist/styles/ && cat ./tmp/styles/*css >> ./dist/styles/styles.css",
+    "bundle-css": "postcss ./styles/ --dir ./tmp/styles/ --use postcss-nested --use autoprefixer --use cssnano && rm -Rf ./dist/styles/ && mkdir -p ./dist/styles/ && cat ./tmp/styles/*css >> ./dist/styles/styles.css",
     "bundle-html": "html-minifier --output ./dist/index.html --collapse-whitespace --remove-comments --remove-empty-attributes --remove-optional-tags --remove-redundant-attributes --remove-script-type-attributes --remove-tag-whitespace --use-short-doctype ./index.html",
     "copy-assets": "mkdir -p ./dist/images/ && cp ./images/* ./dist/images/",
     "bundle-common": "npm run bundle-css && npm run bundle-html && npm run copy-assets",
@@ -29,7 +29,7 @@
     "bundle-production": "npm run clean && npm run bundle-js-production && npm run bundle-common",
     "install-server": "npm install -g static-server",
     "start": "static-server -p 8080",
-    "watch": "npm run clean && npm-watch bundle-dev"
+    "watch": "npm-watch bundle-dev"
   },
   "watch": {
     "bundle-dev": {
@@ -44,7 +44,6 @@
   "dependencies": {
     "fetch-ie8": "^1",
     "handlebars": "^4",
-    "jquery": "^3",
     "materialize-css": "^1",
     "normalize.css": "^8",
     "promise-polyfill": "^8"

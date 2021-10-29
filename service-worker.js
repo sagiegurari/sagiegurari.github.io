@@ -3,7 +3,7 @@
 
     const CURRENT_CACHES = {
         data: 'data-v-5',
-        assets: 'assets-v-35'
+        assets: 'assets-v-36'
     };
     const CACHED_EXTENSIONS = [
         '.png',
@@ -14,7 +14,8 @@
         '.woff2',
         '.map',
         'manifest.json',
-        '.githubusercontent.com/u/'
+        '.githubusercontent.com/u/',
+        'Material+Icons'
     ];
 
     self.addEventListener('activate', function (event) {
