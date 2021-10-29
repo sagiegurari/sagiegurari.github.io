@@ -23,8 +23,7 @@ body {
 }
 
 .button-collapse:not(.hidden) {
-  position: absolute;
-  right: 4px;
+  display: block !important;
   font-size: 22px;
 }
 
