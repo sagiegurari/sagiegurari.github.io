@@ -23,7 +23,8 @@ body {
 }
 
 .button-collapse:not(.hidden) {
-  display: block !important;
+  position: absolute;
+  right: 4px;
   font-size: 22px;
 }
 
@@ -44,8 +45,13 @@ body {
   border-radius: 50%;
 }
 
-.side-nav li a.side-link {
+.sidenav li a.side-link {
   font-size: 16px;
+
+  i {
+    margin-right: 6px;
+    font-size: 22px;
+  }
 }
 
 .job-icon {

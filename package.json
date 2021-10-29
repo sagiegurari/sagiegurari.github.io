@@ -14,48 +14,57 @@
     "url": "http://github.com/sagiegurari/sagiegurari.github.io.git"
   },
   "scripts": {
+    "clean": "rm -Rf ./dist ./tmp",
+    "format": "js-beautify --config ./.jsbeautifyrc --file ./partials/*.html ./*.js ./lib/**/*.js ./partials/**/*.html",
+    "lint-js": "eslint ./*.js ./lib/**/*.js",
+    "lint-css": "stylelint --allow-empty-input ./styles/**/*css",
+    "lint": "npm run lint-js && npm run lint-css",
+    "bundle-js": "esbuild ./lib/app.js --bundle --outfile=./dist/lib/app.js --loader:.hbs=text $*",
+    "bundle-js-production": "npm run bundle-js -- --minify --sourcemap",
+    "bundle-css": "postcss ./styles/ --dir ./tmp/styles/ --use postcss-nested --use autoprefixer --use cssnano && rm -Rf ./dist/styles/ && mkdir -p ./dist/styles/ && cat ./tmp/styles/*css >> ./dist/styles/styles.css",
+    "bundle-html": "mkdir -p ./tmp && posthtml ./partials/index.html -o ./tmp/index.html -u posthtml-modules && html-minifier --output ./index.html --collapse-whitespace --remove-comments --remove-empty-attributes --remove-optional-tags --remove-redundant-attributes --remove-script-type-attributes --remove-tag-whitespace --use-short-doctype ./tmp/index.html",
+    "copy-assets": "mkdir -p ./dist/images/ && cp ./images/* ./dist/images/",
+    "bundle-common": "npm run bundle-css && npm run bundle-html && npm run copy-assets",
+    "bundle-dev": "npm run clean && npm run bundle-js && npm run bundle-common",
+    "bundle-production": "npm run clean && npm run bundle-js-production && npm run bundle-common",
+    "build": "npm run format && npm run lint && npm run bundle-production",
     "install-server": "npm install -g static-server",
     "start": "static-server -p 8080",
-    "build": "grunt build",
-    "watch": "grunt buildAndWatch",
-    "grunt": "grunt",
-    "stylelint": "stylelint --config ./stylelint.config.js"
+    "watch": "npm-watch bundle-dev"
+  },
+  "watch": {
+    "bundle-dev": {
+      "patterns": [
+        "lib",
+        "styles",
+        "partials"
+      ],
+      "extensions": "js,html,css,scss"
+    }
   },
   "dependencies": {
     "fetch-ie8": "^1",
     "handlebars": "^4",
-    "jquery": "^3",
-    "materialize-css": "^0.100",
+    "materialize-css": "^1",
     "normalize.css": "^8",
-    "promise-polyfill": "^7"
+    "promise-polyfill": "^8"
   },
   "devDependencies": {
-    "autoprefixer": "^8",
-    "babel-core": "^6",
-    "babel-loader": "^7",
-    "babel-preset-env": "^1",
-    "cssnano": "^3",
-    "grunt": "^1",
-    "grunt-contrib-clean": "^1",
-    "grunt-contrib-concat": "^1",
-    "grunt-contrib-copy": "^1",
-    "grunt-contrib-htmlmin": "^2",
-    "grunt-contrib-watch": "^1",
-    "grunt-eslint": "^20",
-    "grunt-jsbeautifier": "^0.2",
-    "grunt-jsonlint": "^1",
-    "grunt-postcss": "^0.9",
-    "grunt-stylelint": "^0.9",
-    "grunt-template": "^1",
-    "grunt-webpack": "^3",
-    "jit-grunt": "^0.10",
-    "postcss-nested": "^3",
-    "raw-loader": "^0.5",
-    "stylelint": "^9",
-    "stylelint-config-standard": "^18",
-    "time-grunt": "^1",
-    "web-app-manifest-validator": "^1",
-    "webpack": "^4"
+    "autoprefixer": "^10",
+    "cssnano": "^5",
+    "esbuild": "^0.13",
+    "eslint": "^8",
+    "html-minifier": "^4",
+    "js-beautify": "^1",
+    "npm-watch": "^0.11",
+    "postcss": "^8",
+    "postcss-cli": "^9",
+    "postcss-nested": "^5",
+    "posthtml": "^0.16.5",
+    "posthtml-cli": "^0.10.0",
+    "posthtml-modules": "^0.7.4",
+    "stylelint": "^13",
+    "stylelint-config-standard": "^22"
   },
   "browserslist": [
     "> 1%",

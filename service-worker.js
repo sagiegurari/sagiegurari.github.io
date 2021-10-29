@@ -1,11 +1,9 @@
 (function () {
     'use strict';
 
-    /*global fetch, self, cache, caches*/
-
     const CURRENT_CACHES = {
         data: 'data-v-5',
-        assets: 'assets-v-35'
+        assets: 'assets-v-36'
     };
     const CACHED_EXTENSIONS = [
         '.png',
@@ -16,7 +14,8 @@
         '.woff2',
         '.map',
         'manifest.json',
-        '.githubusercontent.com/u/'
+        '.githubusercontent.com/u/',
+        'Material+Icons'
     ];
 
     self.addEventListener('activate', function (event) {
@@ -91,7 +90,7 @@
         }
 
         if (cacheSkipped) {
-            console.warn('[service worker] skipped cache for url: ', url);
+            console.warn('[service worker] skipped cache for url: ', url, 'cache version:', CURRENT_CACHES);
         }
     });
 }());

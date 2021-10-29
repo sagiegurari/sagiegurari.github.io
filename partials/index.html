@@ -9,13 +9,13 @@
         <title>Sagie Gur-Ari</title>
         <meta name="description" content="Personal Website of Sagie Gur-Ari">
         <meta name="author" content="Sagie Gur-Ari">
-        <meta name="version" content="5.35">
+        <meta name="version" content="5.36">
 
         <link rel="stylesheet" type="text/css" href="dist/styles/styles.css">
-        <link href="https://use.fontawesome.com/releases/v5.0.7/css/all.css" rel="stylesheet" media="screen,projection">
+        <module href="./partials/external-resources.html"></module>
 
         <link rel="manifest" href="/manifest.json">
-        <meta name="theme-color" content="#409f62"/>
+        <meta name="theme-color" content="#409f62" />
         <meta name="apple-mobile-web-app-capable" content="yes">
         <meta name="apple-mobile-web-app-status-bar-style" content="black">
         <meta name="apple-mobile-web-app-title" content="Sagie - Personal Website">
@@ -25,17 +25,16 @@
     </head>
 
     <body class="full">
-        <%= sidenav %>
         <div class="main full">
             <nav class="top-nav">
-                <a href="#" data-activates="slide-out" class="button-collapse waves-effect" aria-label="Side Menu"><i class="fa fa-bars"></i></a>
+                <a href="#" data-target="slide-out" class="sidenav-trigger button-collapse waves-effect" aria-label="Side Menu"><i class="fa fa-bars"></i></a>
             </nav>
+            <module href="./partials/sidenav.html"></module>
             <div class="content">
-                <%= projectsPage %>
-                <%= resumePage %>
+                <module href="./partials/projects.html"></module>
+                <module href="./partials/resume.html"></module>
             </div>
         </div>
-
         <script src="dist/lib/app.js"></script>
     </body>
 
