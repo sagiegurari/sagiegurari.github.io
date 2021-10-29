@@ -90,7 +90,7 @@
         }
 
         if (cacheSkipped) {
-            console.warn('[service worker] skipped cache for url: ', url);
+            console.warn('[service worker] skipped cache for url: ', url, 'cache version:', CURRENT_CACHES);
         }
     });
 }());
